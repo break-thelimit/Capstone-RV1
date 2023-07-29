@@ -1,0 +1,22 @@
+﻿@page
+@model IndexModel
+@using System.Net.Http
+<script src="/_framework/blazor.webassembly.js"></script>
+
+@{
+    ViewData["Title"] = "Home page";
+    var httpClient = new HttpClient();
+    var apiCallResult = string.Empty;
+    var code = ""; // Khai báo biến code với giá trị mặc định
+}
+
+<p>API Call Result: @apiCallResult</p>
+
+<button onclick="CallApi()">Gọi API</button>
+
+<script>
+    function CallApi() {
+        // Gọi hàm Razor CallApi
+        DotNet.invokeMethodAsync('DemoLoginGoogle', 'CallApi');
+    }
+</script>
